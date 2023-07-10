@@ -32,7 +32,7 @@ $desktop: (
     "card-heading":15px
 );
 
-@mixin mq($breakpoint: 800px) {
+@mixin mq($breakpoint: 900px) {
     @media (width > $breakpoint) {
         @content;
     }
@@ -254,7 +254,7 @@ main>*+* {
         color: $very-dark-magenta;
         max-width: 15ch;
 
-        @include mq(){
+        @include mq() {
             // font-weight: bold;
             font-size: var(--size-14);
         }
@@ -270,8 +270,22 @@ main>*+* {
     }
 
     &__ratings {
-        display: grid;
+
         gap: var(--size-4);
+
+        display: flex;
+        flex-wrap: wrap;
+
+        >* {
+            flex: 1 0 250px
+        }
+
+        ;
+
+
+        @include mq() {
+            display: grid;
+        }
 
     }
 
@@ -294,6 +308,7 @@ main>*+* {
         .star__placeholder {
             display: flex;
             flex-wrap: nowrap;
+            gap: 0.5ch;
         }
 
         .star {
@@ -329,13 +344,16 @@ main>*+* {
 
 
 
-.testimonials {
-    display: grid;
-    gap: var(--size-4);
-
+.testimonials-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--size-8);
+    & > * {
+        flex: 1 0 250px;
+    }
     @include mq() {
-        gap: var(--size-8);
-        grid-template-columns: 1fr 1fr 1fr;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -381,11 +399,13 @@ main>*+* {
         }
     }
 }
-blockquote{
-    ::before{
+
+blockquote {
+    ::before {
         content: "\201C ";
     }
-    ::after{
+
+    ::after {
         content: " \201D";
     }
 }

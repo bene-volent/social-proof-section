@@ -156,7 +156,7 @@ body {
 main {
   margin: var(--size-20) max(var(--size-6), 5%);
 }
-@media (width > 800px) {
+@media (width > 900px) {
   main {
     width: min(100% - 2 * var(--size-8), 1024px);
     margin: var(--size-24) auto;
@@ -172,7 +172,7 @@ main > * + * {
   gap: var(--size-8);
   text-align: center;
 }
-@media (width > 800px) {
+@media (width > 900px) {
   .hero {
     grid-template-columns: 1fr 1fr;
   }
@@ -182,7 +182,7 @@ main > * + * {
   gap: var(--size-6);
   justify-content: center;
 }
-@media (width > 800px) {
+@media (width > 900px) {
   .hero__content {
     gap: var(--size-4);
     justify-content: start;
@@ -196,7 +196,7 @@ main > * + * {
   color: hsl(300, 43%, 22%);
   max-width: 15ch;
 }
-@media (width > 800px) {
+@media (width > 900px) {
   .hero__title {
     font-size: var(--size-14);
   }
@@ -206,8 +206,17 @@ main > * + * {
   font-weight: 500;
 }
 .hero__ratings {
-  display: grid;
   gap: var(--size-4);
+  display: flex;
+  flex-wrap: wrap;
+}
+.hero__ratings > * {
+  flex: 1 0 250px;
+}
+@media (width > 900px) {
+  .hero__ratings {
+    display: grid;
+  }
 }
 .hero__rating {
   display: flex;
@@ -224,6 +233,7 @@ main > * + * {
 .hero__rating .star__placeholder {
   display: flex;
   flex-wrap: nowrap;
+  gap: 0.5ch;
 }
 .hero__rating .star {
   display: inline-block;
@@ -231,7 +241,7 @@ main > * + * {
   height: 1rem;
   background-image: url("./images/icon-star.svg");
 }
-@media (width > 800px) {
+@media (width > 900px) {
   .hero__rating {
     flex-direction: row;
     flex: 1;
@@ -253,14 +263,18 @@ main > * + * {
   }
 }
 
-.testimonials {
-  display: grid;
-  gap: var(--size-4);
+.testimonials-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-8);
 }
-@media (width > 800px) {
-  .testimonials {
-    gap: var(--size-8);
-    grid-template-columns: 1fr 1fr 1fr;
+.testimonials-wrapper > * {
+  flex: 1 0 250px;
+}
+@media (width > 900px) {
+  .testimonials-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -288,7 +302,7 @@ main > * + * {
 .testimonial__cred {
   color: hsl(333, 80%, 67%);
 }
-@media (width > 800px) {
+@media (width > 900px) {
   .testimonial:nth-of-type(1) {
     grid-column: 1;
     grid-row: 1/span 9;
