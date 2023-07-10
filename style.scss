@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap');
+
+$ff: 'League Spartan', sans-serif;
+$fw-bold: 700;
+$fw-medium: 500;
+$fw-reg: 400;
+
+$very-dark-magenta: hsl(300, 43%, 22%);
+$soft-pink: hsl(333, 80%, 67%);
+
+
+$dark-grayish-magenta: hsl(303, 10%, 53%);
+$light-grayish-magenta: hsl(300, 24%, 96%);
+$white: hsl(0, 0%, 100%);
+
+
+
+$mobile: (
+    "heading":30px,
+    "hero-content":15px,
+    "star":18px,
+    "hero-rating":15px,
+    "card-image-height":42px,
+    "card-heading":15px
+);
+$desktop: (
+    "heading":40px,
+    "hero-content":15px,
+    "star":18px,
+    "hero-rating":12px,
+    "card-image-height":42px,
+    "card-heading":15px
+);
+
+@mixin mq($breakpoint: 800px) {
+    @media (width > $breakpoint) {
+        @content;
+    }
+}
+
+:root {
+    --fs-heading: 30px;
+    --fs-hero-content: 15px;
+    --fs-star: 18px;
+    --fs-hero-rating: 15px;
+    --fs-card-image-height: 42px;
+    --fs-card-heading: 15px;
+    --size-1: calc(0.25rem * 1);
+    --size-2: calc(0.25rem * 2);
+    --size-3: calc(0.25rem * 3);
+    --size-4: calc(0.25rem * 4);
+    --size-5: calc(0.25rem * 5);
+    --size-6: calc(0.25rem * 6);
+    --size-7: calc(0.25rem * 7);
+    --size-8: calc(0.25rem * 8);
+    --size-9: calc(0.25rem * 9);
+    --size-10: calc(0.25rem * 10);
+    --size-11: calc(0.25rem * 11);
+    --size-12: calc(0.25rem * 12);
+    --size-13: calc(0.25rem * 13);
+    --size-14: calc(0.25rem * 14);
+    --size-15: calc(0.25rem * 15);
+    --size-16: calc(0.25rem * 16);
+    --size-17: calc(0.25rem * 17);
+    --size-18: calc(0.25rem * 18);
+    --size-19: calc(0.25rem * 19);
+    --size-20: calc(0.25rem * 20);
+    --size-21: calc(0.25rem * 21);
+    --size-22: calc(0.25rem * 22);
+    --size-23: calc(0.25rem * 23);
+    --size-24: calc(0.25rem * 24);
+}
+
+@media (width > 600px) {
+    :root {
+        --fs-heading: 40px;
+        --fs-hero-content: 15px;
+        --fs-star: 18px;
+        --fs-hero-rating: 12px;
+        --fs-card-image-height: 42px;
+        --fs-card-heading: 15px;
+    }
+}
+
+
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+/*
+	Improved screen reader only CSS class
+	@author Gaël Poupard
+		@note Based on Yahoo!'s technique
+		@author Thierry Koblentz
+		@see https://www.cssmojo.com/hide-content-from-sighted-users/
+	* 1.
+		@note `clip` is deprecated but works everywhere
+		@see https://developer.mozilla.org/en-US/docs/Web/CSS/clip
+	* 2.
+		@note `clip-path` is the future-proof version, but not very well supported yet
+		@see https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
+		@see http://caniuse.com/#search=clip-path
+		@author Yvain Liechti
+		@see https://twitter.com/ryuran78/status/778943389819604992
+	* 3.
+		@note preventing text to be condensed
+		author J. Renée Beach
+		@see https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+		@note Drupal 8 goes with word-wrap: normal instead
+		@see https://www.drupal.org/node/2045151
+		@see http://cgit.drupalcode.org/drupal/commit/?id=5b847ea
+	* 4.
+		@note !important is important
+		@note Obviously you wanna hide something
+		@author Harry Roberts
+		@see https://csswizardry.com/2016/05/the-importance-of-important/
+*/
+
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    /* 1 */
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    /* 2 */
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+    /* 3 */
+}
+
+// Boiler Plate Done
+/* Section */
+
+body {
+    // min-height: 100dvh;
+    background-image: url("./images/bg-pattern-top-mobile.svg"), url("./images/bg-pattern-bottom-mobile.svg");
+    background-repeat: no-repeat, no-repeat;
+    // background-size: 100% auto, 100% auto;
+    background-position: top, bottom;
+
+
+    @include mq(375px) {
+        background-image: url("./images/bg-pattern-top-desktop.svg"), url("./images/bg-pattern-bottom-desktop.svg");
+
+    }
+
+
+    font-family: $ff;
+    color: $dark-grayish-magenta;
+    font-size: var(--size-4);
+
+}
+
+main {
+
+    margin: var(--size-20) max(var(--size-6), 5%);
+
+    // display: none;
+    @include mq() {
+        width: min(calc(100% - 2*var(--size-8)), 1024px);
+        margin: var(--size-24) auto;
+
+    }
+}
+
+main>*+* {
+    margin-top: var(--size-12);
+    // min-width: ;
+}
+
+
+
+.hero {
+    display: grid;
+    gap: var(--size-8);
+    text-align: center;
+
+
+    @include mq() {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &__content {
+        display: grid;
+        gap: var(--size-6);
+        justify-content: center;
+
+
+        @include mq() {
+            gap: var(--size-4);
+            justify-content: start;
+            text-align: start;
+
+        }
+    }
+
+    &__title {
+        font-size: var(--size-10);
+        line-height: 1;
+        font-weight: $fw-bold;
+        // margin-inline: auto;
+
+        color: $very-dark-magenta;
+        max-width: 15ch;
+
+
+    }
+
+    &__subtitle {
+
+        // margin-inline: auto;
+
+        max-width: 40ch;
+        font-weight: $fw-medium;
+    }
+
+    &__ratings {
+        display: grid;
+        gap: var(--size-4);
+
+    }
+
+    &__rating {
+        display: flex;
+        flex-direction: column;
+        gap: var(--size-2);
+        align-items: center;
+
+        padding: var(--size-3);
+        border-radius: var(--size-2);
+
+        font-weight: $fw-bold;
+        font-size: var(--size-4);
+
+        background-color: $light-grayish-magenta;
+        color: $very-dark-magenta;
+
+
+        .star__placeholder {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .star {
+
+            // margin-inline: auto;
+            display: inline-block;
+            width: 17px;
+            height: 1rem;
+            background-image: url("./images/icon-star.svg");
+        }
+
+        @include mq() {
+            flex-direction: row;
+            flex: 1;
+            justify-content: flex-start;
+            gap: var(--size-6);
+
+            padding-left: var(--size-6);
+
+
+            @for $i from 1 through 3 {
+                &:nth-child(#{$i}) {
+                    grid-row: #{$i};
+                    grid-column: #{$i} / span 12;
+                }
+            }
+
+        }
+    }
+
+
+}
+
+
+
+.testimonials {
+    display: grid;
+    gap: var(--size-4);
+
+    @include mq() {
+        gap: var(--size-8);
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.testimonial {
+
+    display: grid;
+    gap: var(--size-4);
+
+    padding: var(--size-8);
+    border-radius: var(--size-2);
+    background-color: $very-dark-magenta;
+    color: $white;
+
+    &__profile {
+        display: flex;
+        align-items: center;
+        gap: var(--size-4);
+    }
+
+    &__userimage {
+        height: var(--size-10);
+        aspect-ratio: 1 / 1;
+
+        border-radius: 50%;
+    }
+
+    &__name {
+        font-size: var(--size-4);
+        // margin: ;
+    }
+
+    &__cred {
+        color: $soft-pink;
+    }
+
+
+    @include mq() {
+        @for $i from 1 through 3 {
+            &:nth-of-type(#{$i}) {
+                grid-column: #{$i};
+                grid-row:#{$i} / span 9;
+            }
+        }
+    }
+}
+blockquote{
+    ::before{
+        content: "\201C ";
+    }
+    ::after{
+        content: " \201D";
+    }
+}
