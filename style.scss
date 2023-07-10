@@ -254,6 +254,10 @@ main>*+* {
         color: $very-dark-magenta;
         max-width: 15ch;
 
+        @include mq(){
+            // font-weight: bold;
+            font-size: var(--size-14);
+        }
 
     }
 

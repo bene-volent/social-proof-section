@@ -196,6 +196,11 @@ main > * + * {
   color: hsl(300, 43%, 22%);
   max-width: 15ch;
 }
+@media (width > 800px) {
+  .hero__title {
+    font-size: var(--size-14);
+  }
+}
 .hero__subtitle {
   max-width: 40ch;
   font-weight: 500;
